@@ -5,9 +5,8 @@ import { CartWidget } from "../cartwidget/cartWidget";
 export const Navbar = () => {
     return (
        <div>
-            <h2>Tienda de TCG</h2>
-            <nav>
-                <ul>
+            <nav  className="navbar"> 
+                <ul className="navbar-links">
                     <li>Home</li>
                     <li>Yugioh</li>
                     <li>Pokemon</li>
