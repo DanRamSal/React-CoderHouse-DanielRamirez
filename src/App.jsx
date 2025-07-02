@@ -1,14 +1,14 @@
-import {Navbar} from './Navbar.jsx';
-import {Footer} from './Footer.jsx';
+import {Navbar} from './navbar/Navbar.jsx';
+import {Footer} from './footer/Footer.jsx';
 
 function App() {
-
-  const unaVar = "Unavar";
 
   return (
     <div>
       <Navbar />
-      Hola desde React
+      <main>
+        <h2>Hola desde React</h2>
+      </main>
       <Footer />
     </div>
   );
