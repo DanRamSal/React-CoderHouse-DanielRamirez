@@ -11,9 +11,7 @@ function App() {
 
   return (
     <div>
-      <Navbar />
-      <ItemListContainer itemList = {objetosLandingPage}/>
-      <Footer />
+     <h2>aca va el enrutado</h2>
     </div>
   );
 }
