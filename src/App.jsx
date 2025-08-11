@@ -15,7 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<ItemListContainer itemList={objetosLandingPage} />} />
         <Route path="/carrito" element={<Carrito />} />
-        <Route path="/detalle/:prodid" element={<ItemDetailContainer />} />
+        <Route path="/detalle/:id" element={<ItemDetailContainer />} />
         <Route path = "*" element={<h1>404 Not Found</h1>} />
       </Routes>
       <Footer />

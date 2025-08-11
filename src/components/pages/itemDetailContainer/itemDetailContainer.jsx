@@ -4,21 +4,22 @@ import { useParams } from 'react-router';
 
 
 export const ItemDetailContainer = () => {
-    const elparam = useParams();
+    const {id} = useParams();
     const [producto, setProducto] = useState({});
-    let id = 3;
     useEffect(() => {
-        console.log(elparam);
-        console.log(elparam.prodid);
-        const productoEncontrado = objetosLandingPage.find((item) => item.id === elparam.prodid);
+        const productoEncontrado = objetosLandingPage.find((item) => item.id === Number(id));
         setProducto(productoEncontrado);
     }, [id]);
 
   return (
-    <div>
-      <h2>{producto.title}</h2>
-      <h2>{producto.precio}</h2>
-      <button>Agregar al carrito</button>
-    </div>
+    <main>
+      <div className="product-card">
+        <div className="product-info">
+          <h2>{producto.nombre}</h2>
+          <h2>{producto.precio}</h2>
+          <button className="product-btn">Agregar al carrito</button>
+        </div>
+      </div>
+    </main>
   )
 }

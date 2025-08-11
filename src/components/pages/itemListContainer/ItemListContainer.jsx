@@ -5,7 +5,7 @@ export const ItemListContainer = (props) => {
   return (
     <main>
       <h2>Lista de Productos</h2>
-      <div>
+      <div className="product-container">
         {props.itemList.map((item) => (
           <div className="product-card">
             <div className="product-info">
