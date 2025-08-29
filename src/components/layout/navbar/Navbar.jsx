@@ -10,9 +10,13 @@ export const Navbar = () => {
                 <ul className="navbar-links">
                 <Link to = "/">
                     <li>Home</li>
-                </Link>    
+                </Link>
+                <Link to = "/categoria/Yugioh">    
                     <li>Yugioh</li>
+                </Link>
+                <Link to = "/categoria/Pokemon">
                     <li>Pokemon</li>
+                </Link>
                 </ul>
                 <Link to = "/carrito">
                     <CartWidget/>

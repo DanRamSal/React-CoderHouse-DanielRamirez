@@ -18,7 +18,9 @@ export const Carrito = () => {
         })
       }
       <p>Aquí se mostrarán los productos agregados al carrito.</p>
+      <p>El total a pagar es: 20</p>
       <button onClick={resetCart}>Vaciar Carrito</button>
+      <Link to= "/checkout">Finalizar compra</Link>
     </div>
   )
 }

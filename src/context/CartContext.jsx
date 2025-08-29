@@ -7,7 +7,11 @@ export const CartContext = createContext();
 const CartContextProvider = ({children}) => {
 
 const [cart, setCart] = useState([]);
-const removefromCart = (id) => {};
+
+const removefromCart = (id) => {
+    let arrayFiltrado = cart.filter(elemento => elemento.id !== id);
+    setCart(arrayFiltrado);
+};
 
 
 const resetCart = () =>{
