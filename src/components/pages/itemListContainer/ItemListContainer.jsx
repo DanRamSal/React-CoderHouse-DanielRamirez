@@ -9,28 +9,35 @@ import { useEffect, useState } from "react";
   //addDoc(productsCollection, {Objeto});
 //};
 
-export const ItemListContainer = (props) => {
+export const ItemListContainer = () => {
 
+   console.log('1');
   const {IdCategoria} = useParams();
   const [productos, setProductos] = useState([]);
+  
 
-  useEffect(() => {
-    if(IdCategoria){
-      const productosFiltrados = props.itemList.filter((item) => item.categoria === IdCategoria);
-      setProductos(productosFiltrados);
-    } else {
-      setProductos(props.itemList);
+
+  
+ useEffect(() => {
+    
+  let productsCollection = collection(db, "productos");
+  let filtrado = {};
+    if(IdCategoria){      
+      filtrado = query(productsCollection, where("categoria", "==", IdCategoria));
+    }  
+    else{
+      filtrado = productsCollection;
     }
-  }, [IdCategoria, props.itemList]);
 
-  //let productsCollection = collection(db, "productos");
-  //let filtrado = query(productsCollection, where("categoria", "==", "pokemon"));
-  //let getProducts = getDocs(productsCollection);
-  //getProducts.then((res) => {
-  //    let arrayProductos = res.docs.map((doc) => {
-  //      return {id: doc.id, ...doc.data()}
-  //    });
-  //});
+    let getProducts = getDocs(filtrado);
+      
+    getProducts.then((res) => {
+      let arrayProductos = res.docs.map((doc) => {
+        return {id: doc.id, ...doc.data()}
+      });
+      setProductos(arrayProductos);
+    });} , [IdCategoria]);
+
 
   return (
     <main>
