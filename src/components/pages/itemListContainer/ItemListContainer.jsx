@@ -21,15 +21,15 @@ export const ItemListContainer = () => {
  useEffect(() => {
     
   let productsCollection = collection(db, "productos");
-  let filtrado = {};
+  let prods = {};
     if(IdCategoria){      
-      filtrado = query(productsCollection, where("categoria", "==", IdCategoria));
+      prods = query(productsCollection, where("categoria", "==", IdCategoria));
     }  
     else{
-      filtrado = productsCollection;
+      prods = productsCollection;
     }
 
-    let getProducts = getDocs(filtrado);
+    let getProducts = getDocs(prods);
       
     getProducts.then((res) => {
       let arrayProductos = res.docs.map((doc) => {
@@ -47,6 +47,7 @@ export const ItemListContainer = () => {
           <div className="product-card">
             <div className="product-info">
               <h3>{item.nombre}</h3>
+              <img className="product-img" src={item.imageUrl}></img>
               <p className="product-price">Precio: ${item.precio}</p>  
               <Link to={`/detalle/${item.id}`}>
                 <button className="product-btn">Detalle del Producto</button>

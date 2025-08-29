@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import {objetosLandingPage} from '../../../listaDeProductos.js';
 import { useParams } from 'react-router';
+import {db} from "../../../firebaseConfig"
+import {addDoc, collection, getDoc, query, where, doc} from "firebase/firestore"
 import {CartContext} from '../../../context/CartContext.jsx';
 import {useContext} from 'react';
 import {Counter} from '../../counter/Counter.jsx';
@@ -10,10 +12,15 @@ export const ItemDetailContainer = () => {
     const {id} = useParams();
     const [producto, setProducto] = useState({});
 
-
     useEffect(() => {
-        const productoEncontrado = objetosLandingPage.find((item) => item.id === Number(id));
-        setProducto(productoEncontrado);
+
+    let productsCollection = collection(db, "productos");
+    let prod = {};    
+    prod = doc(productsCollection, id);    
+    let getProduct = getDoc(prod);      
+    getProduct.then((res) => {
+      setProducto({id: res.id, ...res.data()});
+      });         
     }, [id]);
 
   return (
