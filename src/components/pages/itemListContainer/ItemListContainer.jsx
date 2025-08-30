@@ -10,33 +10,27 @@ import { useEffect, useState } from "react";
 //};
 
 export const ItemListContainer = () => {
-
-   console.log('1');
+  
   const {IdCategoria} = useParams();
   const [productos, setProductos] = useState([]);
   
-
-
-  
- useEffect(() => {
+  useEffect(() => {
     
   let productsCollection = collection(db, "productos");
   let prods = {};
-    if(IdCategoria){      
-      prods = query(productsCollection, where("categoria", "==", IdCategoria));
-    }  
-    else{
-      prods = productsCollection;
-    }
+  if(IdCategoria){      
+    prods = query(productsCollection, where("categoria", "==", IdCategoria));
+  }  
+  else{
+    prods = productsCollection;
+  }
 
-    let getProducts = getDocs(prods);
+  let getProducts = getDocs(prods);
       
-    getProducts.then((res) => {
-      let arrayProductos = res.docs.map((doc) => {
-        return {id: doc.id, ...doc.data()}
-      });
-      setProductos(arrayProductos);
-    });} , [IdCategoria]);
+  getProducts.then((res) => {
+    let arrayProductos = res.docs.map((doc) => {return {id: doc.id, ...doc.data()}});
+    setProductos(arrayProductos);
+  });} , [IdCategoria]);
 
 
   return (

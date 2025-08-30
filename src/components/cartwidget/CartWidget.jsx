@@ -7,6 +7,7 @@ export const CartWidget = () => {
   const {car, getTotalItems} = useContext(CartContext);
 
   let cartQTY = getTotalItems();
+  
   return (
     <div>
       <BsFillCartFill/>

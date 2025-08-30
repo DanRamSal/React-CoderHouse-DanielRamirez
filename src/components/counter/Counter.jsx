@@ -17,8 +17,6 @@ export const Counter = ({product}) => {
 
     const agregarAlCarrito = () =>{
         let productoConCantidad = {...product, cantidad: contador};
-        console.log(productoConCantidad);
-        console.log(cart);
         addToCart(productoConCantidad);
     }
 
