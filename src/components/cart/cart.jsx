@@ -18,14 +18,13 @@ export const Carrito = () => {
             <h2>{producto.nombre}</h2>
             <h2>Precio : ${producto.precio}</h2>
             <h2>Cantidad : {producto.cantidad}</h2>
+            <p>El total a pagar es: {totalCarrito}</p>
             <button onClick={() => removefromCart(producto.id)}>Eliminar</button>
+            {cart.length === 1 &&  <Link to= "/checkout">Finalizar compra </Link>}
           </div>
         })
       }
-      <p>Aquí se mostrarán los productos agregados al carrito.</p>
-      <p>El total a pagar es: {totalCarrito}</p>
       <button onClick={resetCart}>Vaciar Carrito</button>
-      <Link to= "/checkout">Finalizar compra </Link>
     </div>
   )
 }

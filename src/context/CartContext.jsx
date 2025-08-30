@@ -8,6 +8,8 @@ const CartContextProvider = ({children}) => {
 
 const [cart, setCart] = useState([]);
 
+//Para despues [JSON.parse(localStorage.getItem("cart"))] 
+
 const removefromCart = (id) => {
     let arrayFiltrado = cart.filter(elemento => elemento.id !== id);
     setCart(arrayFiltrado);
@@ -22,11 +24,14 @@ const addToCart = (producto) => {
 };
 
 const getTotalAmount = () => {
+    if(cart.length === 0) return 0;
     let total = cart.reduce((acc, producto) => acc + (producto.precio * producto.cantidad), 0);
     return total;
 }
 
 const getTotalItems = () => {
+    if(cart.length === 0) return 0;
+    console.log(cart)
     let totalItems = cart.reduce((acc, producto) => acc + producto.cantidad, 0);
     return totalItems;
 }
