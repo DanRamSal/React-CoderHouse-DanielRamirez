@@ -6,13 +6,14 @@ import { getFirestore } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBjdeXGUZsZKbDBKQu9TbABEwmyd738fkM",
-  authDomain: "backend-curso-react-142ea.firebaseapp.com",
-  projectId: "backend-curso-react-142ea",
-  storageBucket: "backend-curso-react-142ea.firebasestorage.app",
-  messagingSenderId: "211148955520",
-  appId: "1:211148955520:web:69df5e960713eec250eb65"
+  apiKey: import.meta.env.VITE_API_KEY,
+  authDomain: import.meta.env.VITE_API_AUTH,
+  projectId: import.meta.env.VITE_API_PROJECT,
+  storageBucket: import.meta.env.VITE_API_STORAGE,
+  messagingSenderId: import.meta.env.VITE_API_MESSAGING,
+  appId: import.meta.env.VITE_API_APP,
 };
+
 
 // Initialize Firebase
 const backendApp = initializeApp(firebaseConfig);
