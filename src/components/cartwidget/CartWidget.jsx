@@ -4,11 +4,13 @@ import { useContext } from "react";
 import { CartContext } from "../../context/CartContext.jsx";
 
 export const CartWidget = () => {
-  const {cart} = useContext(CartContext);
+  const {car, getTotalItems} = useContext(CartContext);
+
+  let cartQTY = getTotalItems();
   return (
     <div>
       <BsFillCartFill/>
-      <span className="cart-badge">{cart.length}</span>
+      <span className="cart-badge">{cartQTY}</span>
     </div>
   )
 }

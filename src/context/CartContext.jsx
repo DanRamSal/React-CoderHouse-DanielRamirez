@@ -13,7 +13,6 @@ const removefromCart = (id) => {
     setCart(arrayFiltrado);
 };
 
-
 const resetCart = () =>{
     setCart([]);
 }
@@ -22,12 +21,25 @@ const addToCart = (producto) => {
     setCart([...cart, producto]);
 };
 
+const getTotalAmount = () => {
+    let total = cart.reduce((acc, producto) => acc + (producto.precio * producto.cantidad), 0);
+    return total;
+}
+
+const getTotalItems = () => {
+    let totalItems = cart.reduce((acc, producto) => acc + producto.cantidad, 0);
+    return totalItems;
+}
+
   return (
-    <CartContext.Provider value ={{
+    <CartContext.Provider 
+        value ={{
         cart: cart,
         addToCart: addToCart,
         removefromCart: removefromCart,
         resetCart: resetCart,
+        getTotalAmount: getTotalAmount,
+        getTotalItems: getTotalItems
     }}>
         {children}
     </CartContext.Provider>

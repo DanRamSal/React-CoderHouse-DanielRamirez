@@ -1,6 +1,7 @@
 import {Navbar} from './components/layout/navbar/Navbar.jsx';
 import {Footer} from './components/layout/footer/Footer.jsx';
 import {Carrito} from './components/cart/cart.jsx';
+import {Checkout} from './components/pages/checkout/Checkout.jsx';
 import {ItemDetailContainer} from './components/pages/itemDetailContainer/itemDetailContainer.jsx';
 import {objetosLandingPage} from './listaDeProductos.js';
 import {ItemListContainer} from './components/pages/itemListContainer/ItemListContainer.jsx';
@@ -17,6 +18,7 @@ function App() {
         <Route path="/" element={<ItemListContainer itemList={objetosLandingPage} />} />
         <Route path="/carrito" element={<Carrito />} />
         <Route path="/detalle/:id" element={<ItemDetailContainer />} />
+        <Route path="/checkout" element={<Checkout/>} />
         <Route path="/categoria/:IdCategoria" element={<ItemListContainer itemList={objetosLandingPage}/>}/>
         <Route path = "*" element={<h1>404 Not Found</h1>} />\
       </Routes>

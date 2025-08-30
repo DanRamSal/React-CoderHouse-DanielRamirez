@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import {objetosLandingPage} from '../../../listaDeProductos.js';
 import { useParams } from 'react-router';
 import {db} from "../../../firebaseConfig"
 import {addDoc, collection, getDoc, query, where, doc} from "firebase/firestore"

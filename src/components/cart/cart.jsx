@@ -1,9 +1,12 @@
 import React, {useContext} from 'react'
 import { CartContext } from '../../context/CartContext'
+import { Link } from 'react-router';
 
 export const Carrito = () => {
 
-  const {cart, resetCart, removefromCart} =  useContext(CartContext);
+  const {cart, resetCart, removefromCart, getTotalAmount} =  useContext(CartContext);
+
+  let totalCarrito = getTotalAmount();
 
   return (
     <div>
@@ -13,14 +16,16 @@ export const Carrito = () => {
           return <div key={producto.id}> 
             <h2>{producto.title}</h2>
             <h2>{producto.nombre}</h2>
+            <h2>Precio : ${producto.precio}</h2>
+            <h2>Cantidad : {producto.cantidad}</h2>
             <button onClick={() => removefromCart(producto.id)}>Eliminar</button>
           </div>
         })
       }
       <p>Aquí se mostrarán los productos agregados al carrito.</p>
-      <p>El total a pagar es: 20</p>
+      <p>El total a pagar es: {totalCarrito}</p>
       <button onClick={resetCart}>Vaciar Carrito</button>
-      <Link to= "/checkout">Finalizar compra</Link>
+      <Link to= "/checkout">Finalizar compra </Link>
     </div>
   )
 }
