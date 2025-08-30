@@ -38,7 +38,7 @@ export const ItemListContainer = () => {
       <h2>Lista de Productos</h2>
       <div className="product-container">
         {productos.map((item) => (
-          <div className="product-card">
+          <div className="product-card" key={item.id}>
             <div className="product-info">
               <h3>{item.nombre}</h3>
               <img className="product-img" src={item.imageUrl}></img>
