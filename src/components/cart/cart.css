@@ -1,0 +1,38 @@
+.main-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.checkout-product-container{
+    width: 60%;
+    display: flex;
+    flex-direction: row;    
+    border: 1px solid #eee;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    padding: 1rem;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.checkout-product-container:hover{   
+    transform: scale(1.02);
+    transition: all 0.5s ease;
+}
+
+.image-and-title-cont{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20%;
+    gap: 1rem;
+}
+
+.checkout-product-img {
+    max-height: 100px;
+    height: auto;
+    border-radius: 4px;
+}

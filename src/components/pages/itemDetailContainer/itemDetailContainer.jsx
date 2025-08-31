@@ -27,7 +27,8 @@ export const ItemDetailContainer = () => {
       <div className="product-card">
         <div className="product-info">
           <h2>{producto.nombre}</h2>
-          <h2>{producto.precio}</h2>
+          <h2>Precio: ${producto.precio}</h2>
+          <img className="product-img" src={producto.imageUrl}></img>
           <Counter product={producto}></Counter>
         </div>
       </div>

@@ -1,6 +1,7 @@
 import React from 'react'
 import { useContext , useState} from 'react';
 import { CartContext } from '../../context/CartContext.jsx';
+import "./Counter.css"
 
 export const Counter = ({product}) => {
 
@@ -22,12 +23,15 @@ export const Counter = ({product}) => {
 
 
   return (
-    <div>
-        <button onClick={restar} disabled={contador === 1}>-</button>
-        <h2>{contador}</h2>
-        <button onClick={sumar} disabled={contador === product.stock}>+</button>
+    <div className='buttons-container'>
+        <div className='counter-container'>
+            <button onClick={restar} disabled={contador === 1}  className="product-btn">-</button>
+            <h2>{contador}</h2>
+            <button onClick={sumar} disabled={contador === product.stock}  className="product-btn">+</button>
+        </div>
         <button onClick={agregarAlCarrito}  className="product-btn">Agregar al carrito</button>
     </div>
+    
   )
 }
 

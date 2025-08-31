@@ -56,6 +56,10 @@ main {
   transition: background 0.2s;
 }
 
+.product-btn:disabled {
+  background: #999;  
+}
+
 .product-btn:hover {
   background: #f39c12;
 }
